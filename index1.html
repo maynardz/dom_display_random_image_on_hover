@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href='./index1.css'>
+</head>
+
+<body>
+
+    <img id="hover" src='https://pro2-bar-s3-cdn-cf3.myportfolio.com/62f65d5788365e649efdd286ef1a2b73/4af2e3dad4a9a15b88917c45_rw_1920.jpg?h=5988441b0160b5cdbe51893c106d583f' style="height: 500px; width: 500px">
+
+    <div class="losange">
+        <div class="los1">
+            <div id="picHolder" style="height: 500px; width: 500px;"></div>
+        </div>
+    </div>
+
+    <script>
+
+        let placement = document.getElementById('picHolder');
+
+            let imageArray = [{
+                src: "https://pro2-bar-s3-cdn-cf6.myportfolio.com/62f65d5788365e649efdd286ef1a2b73/0a79513b601c75d0512e41a3_rw_1920.jpg?h=747d96ba3fa98a1e779c76d1ae6fc4e2",
+                width: '500',
+                height: '500',
+            }, {
+                src: "https://pro2-bar-s3-cdn-cf5.myportfolio.com/62f65d5788365e649efdd286ef1a2b73/65b41d0eb6c836d0158bbede_rw_1920.jpg?h=22578074aa343176ef7a8c9b7348ea05",
+                width: '500',
+                height: '500',
+            }, {
+                src: "https://pro2-bar-s3-cdn-cf3.myportfolio.com/62f65d5788365e649efdd286ef1a2b73/4af2e3dad4a9a15b88917c45_rw_1920.jpg?h=5988441b0160b5cdbe51893c106d583f",
+                width: '500',
+                height: '500'
+            }, {
+                src: 'https://theinspirationgrid.com/app/uploads/2016/01/photography-animeyed-01-768x739.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'https://photogrist.com/wp-content/uploads/2017/05/Flora-Borsi.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'https://images.curiator.com/images/t_x/art/lraxbf4xkwjl9q2wrhzn/flora-borsi-animeyed-ecureuil-2016.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'http://mymodernmet.com/wp/wp-content/uploads/2017/04/animeyed-animal-faces-flora-borsi-3.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'http://2.bp.blogspot.com/-IYV-NqF7F90/Vq40koOSblI/AAAAAAABfLU/dKdQeQuiwk4/s1600/Flora%2BBorsi%2B000.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'http://mymodernmet.com/wp/wp-content/uploads/2017/04/animeyed-animal-faces-flora-borsi-1.jpg',
+                width: '500',
+                height: '500'
+            }, {
+                src: 'https://static.designboom.com/wp-content/uploads/2016/01/flora-borsi-animeyed-self-portraits-designboom-04.jpg',
+                width: '500',
+                height: '500'
+            }]
+
+
+        function displayRandomImage() {
+
+            let preBuffer = [];
+            for (let i = 0, j = imageArray.length; i < j; i++) {
+                preBuffer[i] = new Image();
+                preBuffer[i].src = imageArray[i].src;
+                preBuffer[i].width = imageArray[i].width;
+                preBuffer[i].height = imageArray[i].height;
+
+                function getRandomInt(min, max) {
+                    num = Math.floor(Math.random() * (max - min + 1)) + min;
+                    return preBuffer[num];
+                }
+
+                let newImage = getRandomInt(0, preBuffer.length - 1);
+                let images = document.getElementsByTagName('img');
+
+                for (let p = 0; p < 1; p++) {
+                    images[0].parentNode.removeChild(images[0]);
+                }
+                placement.appendChild(newImage);
+            }
+        }
+
+        let picture = document.getElementById('hover');
+
+        picture.addEventListener('mouseenter', () => {
+            displayRandomImage();
+        })
+
+        placement.addEventListener('mouseenter', () => {
+            displayRandomImage();
+        })
+        
+    </script>
+
+</body>
+
+</html>
